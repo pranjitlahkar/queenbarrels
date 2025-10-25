@@ -1,0 +1,946 @@
+/* components/WhiskeyMakingArt.module.css */
+
+/* CSS Custom Properties */
+:root {
+  --barrel-brown: #735340;
+  --aged-oak: #A6866A;
+  --charcoal-slate: #4F4C47;
+  --classic-white: #FFFFFF;
+  --shadow-deep: rgba(0, 0, 0, 0.8);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --glow-brown: rgba(115, 83, 64, 0.4);
+  --glass-light: rgba(255, 255, 255, 0.1);
+  --glass-medium: rgba(255, 255, 255, 0.05);
+}
+
+.whiskeyArtSection {
+  position: relative;
+  background: var(--classic-white);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Background Decorative Elements */
+.decorativeBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.decorElement {
+  position: absolute;
+  background: radial-gradient(circle, var(--glow-brown), transparent 70%);
+  border-radius: 50%;
+  opacity: 0.05;
+}
+
+.decor1 { width: 150px; height: 150px; top: 10%; left: 5%; }
+.decor2 { width: 100px; height: 100px; top: 20%; right: 10%; }
+.decor3 { width: 120px; height: 120px; top: 40%; left: 8%; }
+.decor4 { width: 180px; height: 180px; bottom: 30%; right: 5%; }
+.decor5 { width: 90px; height: 90px; top: 60%; right: 20%; }
+.decor6 { width: 110px; height: 110px; bottom: 50%; left: 15%; }
+.decor7 { width: 140px; height: 140px; top: 80%; right: 25%; }
+.decor8 { width: 80px; height: 80px; top: 30%; left: 30%; }
+.decor9 { width: 160px; height: 160px; bottom: 10%; left: 40%; }
+.decor10 { width: 95px; height: 95px; top: 50%; right: 35%; }
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(115, 83, 64, 0.8) 0%,
+    rgba(79, 76, 71, 0.7) 50%,
+    rgba(115, 83, 64, 0.8) 100%
+  );
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 1000px;
+  padding: 0 2rem;
+  color: var(--classic-white);
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 
+    2px 4px 8px var(--shadow-deep),
+    0 0 30px var(--shadow-medium);
+}
+
+.heroSubtitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 400;
+  margin: 0 0 2rem 0;
+  text-shadow: 2px 2px 4px var(--shadow-deep);
+  opacity: 0.95;
+}
+
+.heroDescription {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.7;
+  margin: 0;
+  text-shadow: 1px 2px 4px var(--shadow-deep);
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Main Container */
+.container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 10;
+}
+
+/* Introduction Section */
+.introSection {
+  padding: 8rem 0;
+  background: var(--classic-white);
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.introContent {
+  padding-right: 2rem;
+}
+
+.introTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 2rem 0;
+  line-height: 1.2;
+}
+
+.introText {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.8;
+  color: var(--charcoal-slate);
+  margin: 0;
+  opacity: 0.95;
+}
+
+.introImageContainer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 60px var(--shadow-light),
+    0 8px 24px var(--shadow-light);
+}
+
+.introImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.4s ease;
+}
+
+.introImageContainer:hover .introImage {
+  transform: scale(1.05);
+}
+
+.introFallback {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--classic-white);
+}
+
+.introFallbackIcon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.introFallbackText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+/* Process Section */
+.processSection {
+  padding: 8rem 0;
+  background: linear-gradient(135deg, #fafafa, var(--classic-white));
+}
+
+.processSectionHeader {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.processSectionTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 1.5rem 0;
+}
+
+.processSectionSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--charcoal-slate);
+  margin: 0;
+  opacity: 0.9;
+}
+
+.processSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+/* Process Step */
+.processStep {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.processStep.reversed {
+  direction: rtl;
+}
+
+.processStep.reversed > * {
+  direction: ltr;
+}
+
+.processImageContainer {
+  position: relative;
+}
+
+.stepNumber {
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--barrel-brown), var(--aged-oak));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 
+    0 8px 24px var(--shadow-medium),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.stepText {
+  color: var(--classic-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px var(--shadow-deep);
+}
+
+.processImage {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 15px 50px var(--shadow-light),
+    0 6px 20px var(--shadow-light);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.4s ease;
+}
+
+.processImageContainer:hover .image {
+  transform: scale(1.03);
+}
+
+.imageFallback {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--classic-white);
+}
+
+.fallbackIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.fallbackText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+.processMetadata {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, var(--shadow-deep), transparent);
+  padding: 1.5rem;
+  display: flex;
+  gap: 2rem;
+  color: var(--classic-white);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.processImageContainer:hover .processMetadata {
+  opacity: 1;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.metaLabel {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metaValue {
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px var(--shadow-deep);
+}
+
+/* Process Content */
+.processContent {
+  padding: 2rem 0;
+}
+
+.processHeader {
+  margin-bottom: 2rem;
+}
+
+.processTitle {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.processSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--aged-oak);
+  margin: 0;
+  opacity: 0.9;
+}
+
+.processDescription {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--charcoal-slate);
+  margin: 0 0 2.5rem 0;
+  opacity: 0.95;
+}
+
+.processDetails {
+  background: var(--classic-white);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px var(--shadow-light);
+  border-left: 4px solid var(--aged-oak);
+}
+
+.detailsTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--barrel-brown);
+  margin: 0 0 1.5rem 0;
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detailItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--charcoal-slate);
+  opacity: 0.9;
+}
+
+.detailItem:not(:last-child) {
+  border-bottom: 1px solid rgba(166, 134, 106, 0.1);
+}
+
+.detailBullet {
+  color: var(--aged-oak);
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Philosophy Section */
+.philosophySection {
+  padding: 8rem 0;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  color: var(--classic-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophySection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.philosophyContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.philosophyHeader {
+  margin-bottom: 3rem;
+}
+
+.philosophyTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 2px 2px 4px var(--shadow-deep);
+}
+
+.philosophySubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  margin: 0 0 3rem 0;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+  opacity: 0.95;
+}
+
+.philosophyText {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.8;
+  margin: 0 0 4rem 0;
+  max-width: 900px;
+  margin: 0 auto 4rem auto;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+  opacity: 0.9;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.principleCard {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.principleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.principleIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.principleTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-shadow: 1px 1px 2px var(--shadow-deep);
+}
+
+.principleDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+  opacity: 0.9;
+}
+
+/* Craftsmen Section */
+.craftsmenSection {
+  padding: 8rem 0;
+  background: var(--classic-white);
+}
+
+.craftsmenHeader {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.craftsmenTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 1.5rem 0;
+}
+
+.craftsmenSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--aged-oak);
+  margin: 0 0 2rem 0;
+  opacity: 0.9;
+}
+
+.craftsmenDescription {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.7;
+  color: var(--charcoal-slate);
+  margin: 0;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.craftsmenGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+}
+
+/* Craftsman Card */
+.craftsmanCard {
+  background: var(--classic-white);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 
+    0 15px 50px var(--shadow-light),
+    0 6px 20px var(--shadow-light);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(166, 134, 106, 0.1);
+}
+
+.craftsmanCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 25px 70px var(--shadow-medium),
+    0 10px 30px var(--shadow-light);
+}
+
+.craftsmanImageContainer {
+  position: relative;
+  width: 200px;
+  height: 240px;
+  margin: 0 auto 2rem auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--shadow-light);
+}
+
+.craftsmanImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s ease;
+}
+
+.craftsmanCard:hover .craftsmanImage {
+  transform: scale(1.05);
+}
+
+.craftsmanFallback {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--classic-white);
+}
+
+.craftsmanFallbackIcon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.craftsmanFallbackText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+.craftsmanInfo {
+  padding: 0 1rem;
+}
+
+.craftsmanName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 0.5rem 0;
+}
+
+.craftsmanTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--aged-oak);
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.craftsmanMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.experience {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--barrel-brown);
+  padding: 0.4rem 1rem;
+  background: rgba(115, 83, 64, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(115, 83, 64, 0.2);
+}
+
+.specialty {
+  font-size: 0.85rem;
+  color: var(--charcoal-slate);
+  opacity: 0.8;
+}
+
+/* Bottom Decorative Line */
+.bottomDecor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent,
+    var(--barrel-brown) 20%,
+    var(--aged-oak) 50%,
+    var(--barrel-brown) 80%,
+    transparent
+  );
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .introGrid,
+  .processStep {
+    gap: 4rem;
+  }
+  
+  .principlesGrid,
+  .craftsmenGrid {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    height: 80vh;
+    min-height: 500px;
+  }
+  
+  .heroContent {
+    padding: 0 1rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .introSection,
+  .processSection,
+  .philosophySection,
+  .craftsmenSection {
+    padding: 6rem 0;
+  }
+  
+  .introGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .introContent {
+    padding-right: 0;
+    text-align: center;
+  }
+  
+  .introImageContainer {
+    height: 400px;
+  }
+  
+  .processSteps {
+    gap: 6rem;
+  }
+  
+  .processStep {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .processStep.reversed {
+    direction: ltr;
+  }
+  
+  .stepNumber {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto 2rem auto;
+  }
+  
+  .processImage {
+    height: 300px;
+  }
+  
+  .principlesGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .principleCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .craftsmenGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    height: 70vh;
+    min-height: 400px;
+  }
+  
+  .introSection,
+  .processSection,
+  .philosophySection,
+  .craftsmenSection {
+    padding: 4rem 0;
+  }
+  
+  .stepNumber {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .stepText {
+    font-size: 1.2rem;
+  }
+  
+  .processImage {
+    height: 250px;
+    border-radius: 16px;
+  }
+  
+  .processDetails {
+    padding: 1.5rem;
+  }
+  
+  .principleCard {
+    padding: 2rem 1rem;
+    border-radius: 16px;
+  }
+  
+  .principleIcon {
+    font-size: 2.5rem;
+  }
+  
+  .craftsmanCard {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .craftsmanImageContainer {
+    width: 150px;
+    height: 180px;
+  }
+}
+
+/* Enhanced Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .decorElement,
+  .image,
+  .introImage,
+  .craftsmanImage {
+    animation: none !important;
+    transition: none;
+  }
+  
+  .craftsmanCard,
+  .principleCard {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .processDetails {
+    border: 2px solid var(--charcoal-slate);
+  }
+  
+  .principleCard {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .craftsmanCard {
+    border: 2px solid var(--charcoal-slate);
+  }
+}
+
+/* Focus States */
+.processStep:focus-within,
+.craftsmanCard:focus-within,
+.principleCard:focus-within {
+  outline: 3px solid var(--barrel-brown);
+  outline-offset: 4px;
+}
+
+/* Print Styles */
+@media print {
+  .whiskeyArtSection {
+    background: var(--classic-white);
+    color: var(--charcoal-slate);
+  }
+  
+  .decorativeBackground,
+  .bottomDecor,
+  .heroOverlay {
+    display: none;
+  }
+  
+  .heroSection {
+    height: auto;
+    min-height: auto;
+    padding: 4rem 0;
+  }
+  
+  .philosophySection {
+    background: var(--classic-white);
+    color: var(--charcoal-slate);
+  }
+  
+  .principleCard {
+    background: var(--classic-white);
+    border: 1px solid var(--charcoal-slate);
+  }
+  
+  .craftsmanCard {
+    box-shadow: none;
+    border: 1px solid var(--charcoal-slate);
+  }
+}

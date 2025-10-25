@@ -1,0 +1,903 @@
+/* components/QueensCrownProduct.module.css */
+
+/* CSS Custom Properties */
+:root {
+  --barrel-brown: #735340;
+  --aged-oak: #A6866A;
+  --charcoal-slate: #4F4C47;
+  --classic-white: #FFFFFF;
+  --shadow-deep: rgba(0, 0, 0, 0.8);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --glow-brown: rgba(115, 83, 64, 0.4);
+  --glow-gold: rgba(212, 165, 116, 0.6);
+  --glass-light: rgba(255, 255, 255, 0.1);
+  --glass-medium: rgba(255, 255, 255, 0.05);
+}
+
+.productPage {
+  position: relative;
+  background: var(--classic-white);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Background Decorative Elements */
+.decorativeBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.decorElement {
+  position: absolute;
+  background: radial-gradient(circle, var(--glow-brown), transparent 70%);
+  border-radius: 50%;
+  opacity: 0.03;
+}
+
+.decor1 { width: 200px; height: 200px; top: 5%; left: 3%; }
+.decor2 { width: 150px; height: 150px; top: 15%; right: 8%; }
+.decor3 { width: 180px; height: 180px; top: 30%; left: 5%; }
+.decor4 { width: 220px; height: 220px; bottom: 40%; right: 3%; }
+.decor5 { width: 120px; height: 120px; top: 50%; right: 15%; }
+.decor6 { width: 160px; height: 160px; bottom: 60%; left: 10%; }
+.decor7 { width: 190px; height: 190px; top: 70%; right: 20%; }
+.decor8 { width: 130px; height: 130px; top: 25%; left: 25%; }
+.decor9 { width: 170px; height: 170px; bottom: 20%; left: 30%; }
+.decor10 { width: 140px; height: 140px; top: 60%; right: 35%; }
+.decor11 { width: 210px; height: 210px; bottom: 10%; right: 25%; }
+.decor12 { width: 110px; height: 110px; top: 40%; left: 40%; }
+
+/* Hero Section */
+.productHero {
+  position: relative;
+  padding: 10rem 0 8rem 0;
+  background: linear-gradient(
+    135deg,
+    var(--classic-white) 0%,
+    #fafafa 50%,
+    var(--classic-white) 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.heroContainer {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+.heroContent {
+  max-width: 700px;
+}
+
+.productBadge {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  color: var(--classic-white);
+  border-radius: 50px;
+  margin-bottom: 2.5rem;
+  box-shadow: 
+    0 8px 25px var(--shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.productBadge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.badgeText {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.productName {
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 1.5rem 0;
+  line-height: 1;
+  text-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.productTagline {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 500;
+  color: var(--aged-oak);
+  margin: 0 0 1.5rem 0;
+  opacity: 0.9;
+}
+
+.productSubtitle {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--charcoal-slate);
+  margin: 0 0 2rem 0;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+.heroDescription {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  line-height: 1.8;
+  color: var(--charcoal-slate);
+  margin: 0 0 3rem 0;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* Premium Product Specs */
+.productSpecs {
+  margin-bottom: 3rem;
+}
+
+.specGroup {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.spec {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--glass-light), var(--glass-medium));
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(166, 134, 106, 0.1);
+  box-shadow: 0 8px 24px var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.spec:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px var(--shadow-medium);
+}
+
+.specIcon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 2px 4px var(--shadow-light));
+}
+
+.specContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.specLabel {
+  font-size: 0.9rem;
+  color: var(--aged-oak);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.specValue {
+  font-size: 1.2rem;
+  color: var(--barrel-brown);
+  font-weight: 600;
+}
+
+/* Premium Bottle Display */
+.heroBottle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.bottleContainer {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+
+.bottleGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, var(--glow-gold), transparent 60%);
+  opacity: 0.3;
+  z-index: 1;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.bottleImage {
+  position: relative;
+  z-index: 2;
+  width: 100% !important;
+  height: auto !important;
+  filter: drop-shadow(0 25px 50px var(--shadow-deep));
+  transform: translateZ(0);
+}
+
+.bottleFallback {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 650px;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  color: var(--classic-white);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px var(--shadow-deep);
+}
+
+.fallbackIcon {
+  font-size: 6rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.fallbackText {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px var(--shadow-deep);
+}
+
+.bottleEffects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.floatingParticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, var(--glow-gold), transparent);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floatingParticle:nth-child(2) { animation-delay: 1.5s; }
+.floatingParticle:nth-child(3) { animation-delay: 3s; }
+.floatingParticle:nth-child(4) { animation-delay: 4.5s; }
+
+/* Main Content */
+.mainContent {
+  position: relative;
+  z-index: 10;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Section Styles */
+.storySection,
+.craftingSection,
+.servingSection,
+.specsSection {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.storySection {
+  background: linear-gradient(135deg, #fafafa, var(--classic-white));
+}
+
+.craftingSection {
+  background: var(--classic-white);
+}
+
+.servingSection {
+  background: linear-gradient(135deg, var(--classic-white), #fafafa);
+}
+
+.specsSection {
+  background: var(--classic-white);
+  border-bottom: none;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 1.5rem 0;
+  text-shadow: 0 2px 4px var(--shadow-light);
+}
+
+.sectionSubtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--charcoal-slate);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Story Section */
+.storyContent {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.storyText {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  line-height: 1.8;
+  color: var(--charcoal-slate);
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Crafting Process */
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+}
+
+.processCard {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--classic-white);
+  border-radius: 20px;
+  box-shadow: 
+    0 12px 40px var(--shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(166, 134, 106, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.processCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--aged-oak), var(--barrel-brown));
+  opacity: 0.8;
+}
+
+.processCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 50px var(--shadow-medium),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.processIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  filter: drop-shadow(0 4px 8px var(--shadow-light));
+}
+
+.processTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--barrel-brown);
+  margin: 0 0 1rem 0;
+}
+
+.processDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--charcoal-slate);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Tasting Section */
+.tastingSection {
+  padding: 8rem 0;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  color: var(--classic-white);
+  position: relative;
+}
+
+.tastingSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.tastingExperience {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 5rem;
+  margin-top: 4rem;
+  align-items: start;
+}
+
+.tastingControls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.tastingButton {
+  position: relative;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--classic-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.tastingButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.tastingButton.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateX(5px);
+}
+
+.buttonIndicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background: var(--classic-white);
+  border-radius: 0 3px 3px 0;
+  transition: height 0.3s ease;
+}
+
+.tastingButton.active .buttonIndicator {
+  height: 60%;
+}
+
+.tastingDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tastingCard {
+  padding: 4rem 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.colorSwatch {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 2rem auto;
+  box-shadow: 
+    0 8px 24px var(--shadow-deep),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.noteTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 2px 2px 4px var(--shadow-deep);
+}
+
+.noteDescription {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin: 0;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+/* Serving Section */
+.servingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.servingCard {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--classic-white);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px var(--shadow-light);
+  border: 1px solid rgba(166, 134, 106, 0.1);
+  transition: all 0.3s ease;
+}
+
+.servingCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.servingIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  filter: drop-shadow(0 2px 4px var(--shadow-light));
+}
+
+.servingName {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--barrel-brown);
+  margin: 0 0 1rem 0;
+}
+
+.servingDescription {
+  font-size: 1rem;
+  color: var(--charcoal-slate);
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Specifications */
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.specItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  background: var(--classic-white);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px var(--shadow-light);
+  border-left: 4px solid var(--aged-oak);
+  transition: all 0.3s ease;
+}
+
+.specItem:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.specKey {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--charcoal-slate);
+}
+
+.specValueText {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--barrel-brown);
+}
+
+/* Bottom Decorative Line */
+.bottomDecor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent,
+    var(--barrel-brown) 20%,
+    var(--aged-oak) 50%,
+    var(--barrel-brown) 80%,
+    transparent
+  );
+  opacity: 0.8;
+  box-shadow: 0 0 15px var(--glow-brown);
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { left: -100%; }
+  25% { left: -100%; }
+  75% { left: 100%; }
+  100% { left: 100%; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .heroContainer {
+    gap: 6rem;
+    padding: 0 2rem;
+  }
+  
+  .tastingExperience {
+    grid-template-columns: 250px 1fr;
+    gap: 3rem;
+  }
+  
+  .specGroup {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    text-align: center;
+  }
+  
+  .tastingExperience {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .tastingControls {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    position: static;
+  }
+  
+  .tastingButton {
+    min-width: 150px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .productHero {
+    padding: 8rem 0 6rem 0;
+    min-height: auto;
+  }
+  
+  .heroContainer {
+    padding: 0 1.5rem;
+    gap: 4rem;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .storySection,
+  .craftingSection,
+  .tastingSection,
+  .servingSection,
+  .specsSection {
+    padding: 6rem 0;
+  }
+  
+  .specGroup {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .spec {
+    padding: 1.2rem 1.5rem;
+  }
+  
+  .processGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .processCard {
+    padding: 2.5rem 2rem;
+  }
+  
+  .servingGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .specsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tastingCard {
+    padding: 3rem 2rem;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .productHero {
+    padding: 6rem 0 4rem 0;
+  }
+  
+  .heroContainer {
+    padding: 0 1rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .storySection,
+  .craftingSection,
+  .tastingSection,
+  .servingSection,
+  .specsSection {
+    padding: 4rem 0;
+  }
+  
+  .productBadge {
+    padding: 0.8rem 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .processCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .processIcon {
+    font-size: 2.5rem;
+  }
+  
+  .servingCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .servingIcon {
+    font-size: 2rem;
+  }
+  
+  .specItem {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .tastingCard {
+    padding: 2rem 1.5rem;
+    min-height: 200px;
+  }
+  
+  .tastingControls {
+    gap: 0.8rem;
+  }
+  
+  .tastingButton {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-width: 120px;
+  }
+}
+
+/* Enhanced Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bottleImage,
+  .bottleGlow,
+  .floatingParticle,
+  .productBadge::before {
+    animation: none !important;
+  }
+  
+  .processCard,
+  .servingCard,
+  .specItem,
+  .tastingButton {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .processCard,
+  .servingCard,
+  .specItem,
+  .tastingCard {
+    border: 2px solid var(--charcoal-slate);
+  }
+  
+  .tastingSection {
+    background: var(--charcoal-slate);
+  }
+  
+  .tastingButton {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--charcoal-slate);
+  }
+}
+
+/* Focus States */
+.tastingButton:focus,
+.processCard:focus,
+.servingCard:focus {
+  outline: 3px solid var(--barrel-brown);
+  outline-offset: 4px;
+}
+
+/* Print Styles */
+@media print {
+  .productPage {
+    background: var(--classic-white);
+    color: var(--charcoal-slate);
+  }
+  
+  .decorativeBackground,
+  .bottomDecor,
+  .bottleEffects,
+  .bottleGlow {
+    display: none;
+  }
+  
+  .tastingSection {
+    background: var(--classic-white);
+    color: var(--charcoal-slate);
+  }
+  
+  .tastingCard {
+    background: var(--classic-white);
+    border: 1px solid var(--charcoal-slate);
+  }
+  
+  .processCard,
+  .servingCard,
+  .specItem {
+    box-shadow: none;
+    border: 1px solid var(--charcoal-slate);
+  }
+}

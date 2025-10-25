@@ -1,0 +1,595 @@
+/* components/DirectorsPage.module.css */
+
+/* CSS Custom Properties */
+:root {
+  --barrel-brown: #735340;
+  --aged-oak: #A6866A;
+  --charcoal-slate: #4F4C47;
+  --classic-white: #FFFFFF;
+  --shadow-deep: rgba(0, 0, 0, 0.8);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --glow-brown: rgba(115, 83, 64, 0.4);
+  --glass-light: rgba(255, 255, 255, 0.1);
+  --glass-medium: rgba(255, 255, 255, 0.05);
+}
+
+.directorsSection {
+  position: relative;
+  padding: 8rem 0;
+  background: var(--classic-white);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Background Decorative Elements */
+.decorativeBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.decorElement {
+  position: absolute;
+  background: radial-gradient(circle, var(--glow-brown), transparent 70%);
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.decor1 { width: 120px; height: 120px; top: 10%; left: 5%; }
+.decor2 { width: 80px; height: 80px; top: 20%; right: 10%; }
+.decor3 { width: 100px; height: 100px; top: 60%; left: 8%; }
+.decor4 { width: 150px; height: 150px; bottom: 15%; right: 5%; }
+.decor5 { width: 60px; height: 60px; top: 40%; right: 20%; }
+.decor6 { width: 90px; height: 90px; bottom: 40%; left: 15%; }
+.decor7 { width: 110px; height: 110px; top: 80%; right: 25%; }
+.decor8 { width: 70px; height: 70px; top: 30%; left: 30%; }
+
+/* Main Container */
+.container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 10;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 6rem;
+  position: relative;
+}
+
+.headerBadge {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  color: var(--classic-white);
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  box-shadow: 
+    0 8px 24px var(--shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.badgeText {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+.pageTitle {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.titleLine1 {
+  color: var(--charcoal-slate);
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.titleLine2 {
+  color: var(--barrel-brown);
+  background: linear-gradient(135deg, var(--barrel-brown), var(--aged-oak));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px var(--glow-brown);
+}
+
+.headerDescription {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.7;
+  color: var(--charcoal-slate);
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  opacity: 0.9;
+}
+
+.headerUnderline {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--barrel-brown), transparent);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Directors Grid */
+.directorsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 4rem;
+  margin-bottom: 8rem;
+}
+
+/* Director Card */
+.directorCard {
+  position: relative;
+  background: var(--classic-white);
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 60px var(--shadow-light),
+    0 8px 24px var(--shadow-light);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: 1px solid rgba(166, 134, 106, 0.1);
+}
+
+.directorCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 30px 80px var(--shadow-medium),
+    0 12px 40px var(--shadow-light);
+}
+
+/* Image Container */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+}
+
+.directorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s ease;
+}
+
+.directorCard:hover .directorImage {
+  transform: scale(1.05);
+}
+
+/* Image Fallback */
+.imageFallback {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--classic-white);
+}
+
+.fallbackIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.fallbackText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+/* Image Overlay */
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    var(--shadow-deep) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.directorCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.overlayContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--classic-white);
+}
+
+.experience {
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px var(--shadow-deep);
+}
+
+.specialization {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px var(--shadow-deep);
+}
+
+/* Director Info */
+.directorInfo {
+  padding: 2.5rem;
+  background: var(--classic-white);
+}
+
+.directorName {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.directorTitle {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 500;
+  color: var(--aged-oak);
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.directorBio {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--charcoal-slate);
+  margin: 0 0 2rem 0;
+  opacity: 0.9;
+}
+
+/* Read More Button */
+.readMoreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--barrel-brown), var(--aged-oak));
+  color: var(--classic-white);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 24px var(--shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.readMoreButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.readMoreButton:hover::before {
+  left: 100%;
+}
+
+.readMoreButton:hover {
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 32px var(--shadow-medium),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.readMoreButton:hover .buttonIcon {
+  transform: translateX(4px);
+}
+
+/* Card Decorative Elements */
+.cardDecorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cornerDecor {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--aged-oak);
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0 20px 0 0;
+  opacity: 0.3;
+}
+
+.sideAccent {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--barrel-brown), var(--aged-oak));
+  border-radius: 0 4px 4px 0;
+  opacity: 0.8;
+}
+
+/* Bottom Section */
+.bottomSection {
+  text-align: center;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  border-radius: 24px;
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.bottomSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.bottomContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.bottomTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--classic-white);
+  margin: 0 0 1.5rem 0;
+  text-shadow: 2px 2px 4px var(--shadow-deep);
+}
+
+.bottomDescription {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+/* Bottom Decorative Line */
+.bottomDecor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent,
+    var(--barrel-brown) 20%,
+    var(--aged-oak) 50%,
+    var(--barrel-brown) 80%,
+    transparent
+  );
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .directorsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .directorsSection {
+    padding: 6rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .header {
+    margin-bottom: 4rem;
+  }
+  
+  .directorsGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 6rem;
+  }
+  
+  .directorCard {
+    border-radius: 20px;
+  }
+  
+  .imageContainer {
+    height: 350px;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .directorInfo {
+    padding: 2rem;
+  }
+  
+  .readMoreButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .bottomSection {
+    margin: 3rem 0;
+    border-radius: 20px;
+  }
+  
+  .bottomContent {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .directorsSection {
+    padding: 4rem 0;
+  }
+  
+  .headerBadge {
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .badgeText {
+    font-size: 0.9rem;
+  }
+  
+  .imageContainer {
+    height: 300px;
+    border-radius: 16px 16px 0 0;
+  }
+  
+  .directorInfo {
+    padding: 1.5rem;
+  }
+  
+  .readMoreButton {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .bottomSection {
+    padding: 3rem 0;
+    border-radius: 16px;
+  }
+  
+  .cornerDecor {
+    width: 50px;
+    height: 50px;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .sideAccent {
+    width: 3px;
+    height: 60px;
+  }
+}
+
+/* Enhanced Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .decorElement {
+    animation: none !important;
+  }
+  
+  .directorCard,
+  .readMoreButton,
+  .directorImage {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .directorCard {
+    border: 2px solid var(--charcoal-slate);
+  }
+  
+  .bottomSection {
+    background: var(--charcoal-slate);
+  }
+  
+  .readMoreButton {
+    border: 2px solid var(--classic-white);
+  }
+}
+
+/* Focus States */
+.readMoreButton:focus {
+  outline: 3px solid var(--barrel-brown);
+  outline-offset: 4px;
+}
+
+/* Print Styles */
+@media print {
+  .directorsSection {
+    background: var(--classic-white);
+    color: var(--charcoal-slate);
+  }
+  
+  .decorativeBackground,
+  .bottomDecor,
+  .cardDecorations {
+    display: none;
+  }
+  
+  .directorCard {
+    box-shadow: none;
+    border: 1px solid var(--charcoal-slate);
+  }
+  
+  .readMoreButton {
+    background: var(--charcoal-slate);
+    color: var(--classic-white);
+  }
+}

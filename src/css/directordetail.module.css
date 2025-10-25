@@ -1,0 +1,407 @@
+/* app/directors/[id]/DirectorDetail.module.css */
+
+/* CSS Custom Properties */
+:root {
+  --barrel-brown: #735340;
+  --aged-oak: #A6866A;
+  --charcoal-slate: #4F4C47;
+  --classic-white: #FFFFFF;
+  --shadow-deep: rgba(0, 0, 0, 0.8);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --glow-brown: rgba(115, 83, 64, 0.4);
+}
+
+.directorDetailSection {
+  min-height: 100vh;
+  padding: 6rem 0 4rem 0;
+  background: var(--classic-white);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Back Button */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  color: var(--classic-white);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px var(--shadow-light);
+  margin-bottom: 3rem;
+}
+
+.backButton:hover {
+  background: linear-gradient(135deg, var(--barrel-brown), var(--aged-oak));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.backIcon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.backButton:hover .backIcon {
+  transform: translateX(-3px);
+}
+
+/* Detail Grid */
+.detailGrid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+/* Director Sidebar */
+.directorSidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+.directorImageContainer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 60px var(--shadow-light);
+}
+
+.directorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.imageFallback {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--aged-oak), var(--barrel-brown));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--classic-white);
+}
+
+.fallbackIcon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.fallbackText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+/* Director Meta */
+.directorMeta {
+  background: var(--classic-white);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px var(--shadow-light);
+  border: 1px solid rgba(166, 134, 106, 0.1);
+}
+
+.directorName {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.directorTitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--aged-oak);
+  margin: 0 0 2rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.metaInfo {
+  margin-bottom: 2rem;
+}
+
+.metaItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(166, 134, 106, 0.1);
+}
+
+.metaItem:last-child {
+  border-bottom: none;
+}
+
+.metaLabel {
+  font-weight: 600;
+  color: var(--charcoal-slate);
+}
+
+.metaValue {
+  font-weight: 500;
+  color: var(--barrel-brown);
+}
+
+/* Achievements */
+.achievements {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--aged-oak);
+}
+
+.achievementsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--barrel-brown);
+  margin: 0 0 1.5rem 0;
+}
+
+.achievementsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievementItem {
+  padding: 0.8rem 0;
+  color: var(--charcoal-slate);
+  border-left: 3px solid var(--aged-oak);
+  padding-left: 1rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.achievementItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Director's Note */
+.directorNote {
+  background: var(--classic-white);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 15px 50px var(--shadow-light);
+  border: 1px solid rgba(166, 134, 106, 0.1);
+}
+
+.noteHeader {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.noteTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--barrel-brown);
+  margin: 0 0 1rem 0;
+}
+
+.noteUnderline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--barrel-brown), transparent);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.noteContent {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--charcoal-slate);
+}
+
+.noteContent p {
+  margin: 0 0 1.5rem 0;
+  text-align: justify;
+}
+
+.noteContent p:last-child {
+  margin-bottom: 0;
+}
+
+.noteContent strong {
+  color: var(--barrel-brown);
+  font-weight: 600;
+}
+
+/* Not Found */
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.notFound h1 {
+  font-size: 3rem;
+  color: var(--barrel-brown);
+  margin-bottom: 2rem;
+}
+
+.notFound a {
+  color: var(--aged-oak);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .detailGrid {
+    grid-template-columns: 350px 1fr;
+    gap: 4rem;
+  }
+  
+  .directorImageContainer {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .detailGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .directorSidebar {
+    position: static;
+  }
+  
+  .directorImageContainer {
+    height: 400px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .directorMeta {
+    padding: 1.5rem;
+  }
+  
+  .directorNote {
+    padding: 2rem;
+  }
+  
+  .noteTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .directorDetailSection {
+    padding: 4rem 0 2rem 0;
+  }
+  
+  .backButton {
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+  
+  .directorImageContainer {
+    height: 350px;
+    border-radius: 16px;
+  }
+  
+  .directorMeta {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .directorName {
+    font-size: 2rem;
+  }
+  
+  .directorTitle {
+    font-size: 1.1rem;
+  }
+  
+  .directorNote {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .noteTitle {
+    font-size: 1.8rem;
+  }
+  
+  .noteContent {
+    font-size: 1rem;
+  }
+}
+
+/* Enhanced Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .backButton,
+  .directorImage {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .directorMeta,
+  .directorNote {
+    border: 2px solid var(--charcoal-slate);
+  }
+  
+  .backButton {
+    border: 2px solid var(--classic-white);
+  }
+}
+
+/* Focus States */
+.backButton:focus {
+  outline: 3px solid var(--barrel-brown);
+  outline-offset: 4px;
+}
+
+/* Print Styles */
+@media print {
+  .directorDetailSection {
+    background: var(--classic-white);
+    color: var(--charcoal-slate);
+  }
+  
+  .backButton {
+    display: none;
+  }
+  
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .directorMeta,
+  .directorNote {
+    box-shadow: none;
+    border: 1px solid var(--charcoal-slate);
+  }
+}

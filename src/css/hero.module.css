@@ -1,0 +1,697 @@
+/* components/HeroSection.module.css */
+
+/* CSS Custom Properties */
+:root {
+  --barrel-brown: #735340;
+  --aged-oak: #A6866A;
+  --charcoal-slate: #4F4C47;
+  --classic-white: #FFFFFF;
+  --golden-luxury: #D4A574;
+  --deep-bronze: #8B4513;
+  --shadow-deep: rgba(0, 0, 0, 0.8);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --glow-gold: rgba(212, 165, 116, 0.4);
+  --glass-light: rgba(255, 255, 255, 0.1);
+  --glass-medium: rgba(255, 255, 255, 0.05);
+}
+
+/* Main Hero Section */
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--charcoal-slate), #2c2c2c);
+  padding-top: 120px;
+}
+
+/* Background Image Setup */
+.backgroundContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.6) contrast(1.2) saturate(1.3);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Premium Overlays */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(115, 83, 64, 0.6) 0%,
+    rgba(79, 76, 71, 0.5) 25%,
+    rgba(115, 83, 64, 0.45) 50%,
+    rgba(79, 76, 71, 0.55) 75%,
+    rgba(115, 83, 64, 0.65) 100%
+  );
+  z-index: 3;
+}
+
+.textureOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(166, 134, 106, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(166, 134, 106, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  z-index: 4;
+}
+
+/* Floating Decorative Elements */
+.floatingElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.floatingElement {
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(212, 165, 116, 0.15) 0%,
+    rgba(212, 165, 116, 0.08) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0.4;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.element1 { width: 8px; height: 8px; top: 15%; left: 10%; }
+.element2 { width: 6px; height: 6px; top: 25%; right: 20%; }
+.element3 { width: 10px; height: 10px; top: 35%; left: 15%; }
+.element4 { width: 7px; height: 7px; top: 45%; right: 25%; }
+.element5 { width: 9px; height: 9px; top: 65%; left: 20%; }
+.element6 { width: 5px; height: 5px; top: 75%; right: 15%; }
+.element7 { width: 12px; height: 12px; top: 20%; left: 70%; }
+.element8 { width: 11px; height: 11px; top: 80%; right: 30%; }
+
+/* Main Container */
+.container {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 10;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.content {
+  text-align: center;
+  max-width: 900px;
+  color: var(--classic-white);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Heritage Badge - VISIBLE BY DEFAULT */
+.heritageBadge {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.08)
+  );
+  border: 2px solid;
+  border-image: linear-gradient(135deg, var(--aged-oak), var(--golden-luxury)) 1;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  opacity: 1; /* Visible by default */
+  transform: translateY(0); /* No transform by default */
+}
+
+.heritageBadge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  animation: gentleShimmer 8s ease-in-out infinite;
+}
+
+.badgeText {
+  color: var(--golden-luxury);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+/* Main Headline - VISIBLE BY DEFAULT */
+.mainHeadline {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 2rem 0;
+  text-shadow: 
+    2px 4px 8px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(166, 134, 106, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.headlinePrimary {
+  color: var(--classic-white);
+  font-weight: 600;
+  opacity: 1; /* Visible by default */
+  transform: translateY(0); /* No transform by default */
+  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.8));
+}
+
+.headlineSecondary {
+  color: var(--aged-oak);
+  background: linear-gradient(
+    135deg,
+    var(--aged-oak) 0%,
+    var(--golden-luxury) 30%,
+    var(--classic-white) 50%,
+    var(--golden-luxury) 70%,
+    var(--aged-oak) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  opacity: 1; /* Visible by default */
+  transform: translateY(0); /* No transform by default */
+  position: relative;
+  text-shadow: 0 0 20px rgba(166, 134, 106, 0.4);
+  animation: subtleTextGlow 10s ease-in-out infinite;
+}
+
+.headlineSecondary::after {
+  content: '';
+  position: absolute;
+  bottom: -0.2em;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--golden-luxury),
+    transparent
+  );
+  opacity: 0.8;
+  transform: scaleX(1);
+}
+
+/* Content Body - VISIBLE BY DEFAULT */
+.contentBody {
+  margin: 0 0 3.5rem 0;
+}
+
+.subtitleText {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.5rem;
+  text-shadow: 
+    1px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(0, 0, 0, 0.3);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  opacity: 1; /* Visible by default */
+  transform: translateY(0); /* No transform by default */
+}
+
+.subtitleText:last-child {
+  margin-bottom: 0;
+}
+
+.brandHighlight {
+  color: var(--golden-luxury);
+  font-weight: 600;
+  font-style: normal;
+  text-shadow: 
+    0 0 15px rgba(212, 165, 116, 0.6),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, var(--golden-luxury), var(--classic-white));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.productHighlight {
+  color: var(--aged-oak);
+  font-weight: 600;
+  font-style: normal;
+  text-shadow: 
+    0 0 12px rgba(166, 134, 106, 0.6),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+/* CTA Section - VISIBLE BY DEFAULT */
+.ctaSection {
+  margin-bottom: 4rem;
+}
+
+.tagline {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--classic-white);
+  margin-bottom: 2rem;
+  text-shadow: 
+    2px 4px 8px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(212, 165, 116, 0.4);
+  letter-spacing: 1px;
+  line-height: 1.4;
+  opacity: 1; /* Visible by default */
+  transform: translateY(0); /* No transform by default */
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Premium Buttons - VISIBLE BY DEFAULT */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(0); /* No transform by default */
+  opacity: 1; /* Visible by default */
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, var(--barrel-brown), var(--aged-oak));
+  color: var(--classic-white);
+  border: 2px solid transparent;
+  box-shadow: 
+    0 10px 30px rgba(115, 83, 64, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 1s ease;
+}
+
+.primaryButton:hover::before {
+  left: 100%;
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, var(--aged-oak), var(--golden-luxury));
+  transform: translateY(-2px);
+  box-shadow: 
+    0 15px 35px rgba(115, 83, 64, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(212, 165, 116, 0.4);
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--classic-white);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, var(--aged-oak), var(--golden-luxury)) 1;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.secondaryButton:hover {
+  background: rgba(166, 134, 106, 0.25);
+  border-image: linear-gradient(135deg, var(--golden-luxury), var(--classic-white)) 1;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 28px rgba(166, 134, 106, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 15px rgba(166, 134, 106, 0.3);
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.ctaButton:hover .buttonIcon {
+  transform: translateX(4px);
+}
+
+/* Decorative Corner Elements */
+.decorativeCorners {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.cornerTL,
+.cornerTR,
+.cornerBL,
+.cornerBR {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(166, 134, 106, 0.4);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 60%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.cornerTL {
+  top: 8rem;
+  left: 2rem;
+  border-right: none;
+  border-bottom: none;
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0.12), transparent 60%);
+}
+
+.cornerTR {
+  top: 8rem;
+  right: 2rem;
+  border-left: none;
+  border-bottom: none;
+  background: linear-gradient(315deg, rgba(255, 255, 255, 0.12), transparent 60%);
+}
+
+.cornerBL {
+  bottom: 2rem;
+  left: 2rem;
+  border-right: none;
+  border-top: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 60%);
+}
+
+.cornerBR {
+  bottom: 2rem;
+  right: 2rem;
+  border-left: none;
+  border-top: none;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.12), transparent 60%);
+}
+
+/* Animations */
+@keyframes subtleTextGlow {
+  0%, 100% { 
+    background-position: 200% 0; 
+  }
+  50% { 
+    background-position: -200% 0; 
+  }
+}
+
+@keyframes gentleShimmer {
+  0% { 
+    left: -100%; 
+  }
+  25% { 
+    left: -100%; 
+  }
+  75% { 
+    left: 100%; 
+  }
+  100% { 
+    left: 100%; 
+  }
+}
+
+/* Ultra-Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .buttonContainer {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    padding-top: 100px;
+  }
+  
+  .container {
+    height: calc(100vh - 100px);
+    margin-top: 50px;
+  }
+  
+  .cornerTL,
+  .cornerTR {
+    top: 6rem;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .cornerBL,
+  .cornerBR {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding-top: 80px;
+  }
+  
+  .container {
+    padding: 0 1.2rem;
+    height: calc(100vh - 80px);
+    margin-top: 40px;
+  }
+  
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .ctaButton {
+    width: 100%;
+    max-width: 280px;
+    min-width: auto;
+  }
+  
+  .cornerTL,
+  .cornerTR {
+    top: 4rem;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .cornerBL,
+  .cornerBR {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding-top: 70px;
+  }
+  
+  .container {
+    padding: 0 1rem;
+    height: calc(100vh - 70px);
+    margin-top: 30px;
+  }
+  
+  .cornerTL,
+  .cornerTR,
+  .cornerBL,
+  .cornerBR {
+    display: none;
+  }
+  
+  .heritageBadge {
+    padding: 0.7rem 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .badgeText {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 320px) {
+  .ctaButton {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* Enhanced Accessibility & Performance */
+@media (prefers-reduced-motion: reduce) {
+  .floatingElement,
+  .heritageBadge::before,
+  .headlineSecondary {
+    animation: none;
+  }
+  
+  .ctaButton,
+  .floatingElement {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .gradientOverlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .mainHeadline,
+  .tagline {
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 1);
+  }
+  
+  .ctaButton {
+    border: 3px solid var(--classic-white);
+  }
+}
+
+/* Focus States for Accessibility */
+.ctaButton:focus {
+  outline: 3px solid var(--golden-luxury);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 6px rgba(212, 165, 116, 0.3),
+    0 15px 35px rgba(115, 83, 64, 0.6);
+}
+
+/* Performance Optimizations */
+.backgroundImage,
+.content,
+.floatingElement {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Print Styles */
+@media print {
+  .heroSection {
+    height: auto;
+    min-height: 50vh;
+    background: var(--classic-white);
+    color: var(--charcoal-slate);
+    padding-top: 0;
+  }
+  
+  .backgroundContainer,
+  .floatingElements,
+  .decorativeCorners {
+    display: none;
+  }
+  
+  .gradientOverlay {
+    display: none;
+  }
+  
+  .container {
+    height: auto;
+    margin-top: 0;
+  }
+}

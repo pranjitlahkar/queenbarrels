@@ -1,0 +1,379 @@
+/* components/Footer.module.css */
+
+.footer {
+  background-color: #735340;
+  color: #FFFFFF;
+  padding: 0;
+  margin-top: 4rem; /* Added margin-top for separation */
+  padding-top: 2rem; /* Added top padding to prevent conflicts */
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  padding: 4rem 2rem 4rem 2rem; /* Maintained existing padding but clarified */
+  border-bottom: 1px solid rgba(166, 134, 106, 0.3);
+}
+
+/* Rest of the CSS remains exactly the same... */
+
+.companySection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.logoSection {
+  margin-bottom: 1rem;
+}
+
+.logo {
+  height: auto;
+  max-height: 55px;
+  width: auto;
+  object-fit: contain;
+}
+
+.companyDescription p {
+  color: #FFFFFF;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.socialMedia {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(166, 134, 106, 0.2);
+  color: #FFFFFF;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background-color: #A6866A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(166, 134, 106, 0.3);
+}
+
+.linkSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionHeading {
+  color: #A6866A;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.linkItem {
+  margin: 0;
+}
+
+.footerLink {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.footerLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #A6866A;
+  transition: width 0.3s ease;
+}
+
+.footerLink:hover {
+  color: #A6866A;
+  transform: translateX(4px);
+}
+
+.footerLink:hover::after {
+  width: 100%;
+}
+
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(166, 134, 106, 0.2);
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: #A6866A;
+}
+
+.contactText {
+  flex: 1;
+}
+
+.contactText p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+}
+
+.newsletterSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 2rem;
+  border-bottom: 1px solid rgba(166, 134, 106, 0.3);
+  background: linear-gradient(135deg, rgba(166, 134, 106, 0.1), rgba(115, 83, 64, 0.1));
+}
+
+.newsletterContent {
+  flex: 1;
+  max-width: 400px;
+}
+
+.newsletterContent .sectionHeading {
+  margin-bottom: 0.5rem;
+}
+
+.newsletterText {
+  color: #FFFFFF;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  max-width: 400px;
+  margin-left: 2rem;
+}
+
+.emailInput {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid rgba(166, 134, 106, 0.3);
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.emailInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.emailInput:focus {
+  outline: none;
+  border-color: #A6866A;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(166, 134, 106, 0.2);
+}
+
+.subscribeButton {
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #A6866A, #735340);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(166, 134, 106, 0.2);
+  white-space: nowrap;
+}
+
+.subscribeButton:hover {
+  background: linear-gradient(135deg, #735340, #A6866A);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(166, 134, 106, 0.3);
+}
+
+.bottomBar {
+  padding: 2rem;
+  background-color: rgba(79, 76, 71, 0.3);
+}
+
+.bottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.copyright p,
+.disclaimer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer {
+    margin-top: 3rem; /* Reduced margin for tablets */
+    padding-top: 1.5rem; /* Reduced padding for tablets */
+  }
+  
+  .mainContent {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem;
+  }
+  
+  .newsletterSection {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+  
+  .newsletterForm {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 2.5rem; /* Further reduced for mobile */
+    padding-top: 1rem; /* Minimal padding for mobile */
+  }
+  
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1rem;
+  }
+  
+  .newsletterSection {
+    padding: 2rem 1rem;
+  }
+  
+  .newsletterForm {
+    flex-direction: column;
+  }
+  
+  .bottomContent {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .bottomBar {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    margin-top: 2rem; /* Minimal margin for small screens */
+    padding-top: 0.75rem; /* Minimal padding for small screens */
+  }
+  
+  .mainContent {
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  
+  .newsletterSection {
+    padding: 1.5rem 1rem;
+  }
+  
+  .socialMedia {
+    justify-content: center;
+  }
+  
+  .contactItem {
+    gap: 0.75rem;
+  }
+  
+  .sectionHeading {
+    font-size: 1.1rem;
+  }
+}
+
+/* Focus states for accessibility */
+.footerLink:focus,
+.socialLink:focus,
+.emailInput:focus,
+.subscribeButton:focus {
+  outline: 2px solid #A6866A;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .footer {
+    background: none !important;
+    color: #000 !important;
+  }
+  
+  .socialMedia,
+  .newsletterSection {
+    display: none;
+  }
+}
