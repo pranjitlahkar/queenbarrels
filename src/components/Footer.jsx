@@ -39,7 +39,7 @@ const Footer = () => {
     { href: 'https://facebook.com', label: 'Facebook', icon: 'facebook' },
     { href: 'https://instagram.com', label: 'Instagram', icon: 'instagram' },
     { href: 'https://twitter.com', label: 'Twitter', icon: 'twitter' },
-    { href: 'https://linkedin.com', label: 'LinkedIn', icon: 'linkedin' }
+ 
   ];
 
   return (
@@ -51,7 +51,7 @@ const Footer = () => {
           <div className={styles.companySection}>
             <div className={styles.logoSection}>
               <Image
-                src="/images/logo/logo.png" // Replace with your white logo
+                src="/images/logo/logowhite.png" // Replace with your white logo
                 alt="Queen Global Barrels"
                 width={200}
                 height={65}

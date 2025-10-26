@@ -30,7 +30,7 @@
 
 .logoSection {
   flex-shrink: 0;
-  z-index: 1001;
+  /* z-index: 1001; removed, so it doesn't appear on top of the mobile menu */
 }
 
 .logoLink {
@@ -92,12 +92,16 @@
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navLink:hover {
+/* Added :focus-visible to apply the hover effect on keyboard focus */
+.navLink:hover,
+.navLink:focus-visible {
   color: #735340;
   transform: translateY(-1px);
 }
 
-.navLink:hover::after {
+/* Added :focus-visible to apply the hover effect on keyboard focus */
+.navLink:hover::after,
+.navLink:focus-visible::after {
   width: 100%;
 }
 
@@ -111,7 +115,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1001;
+  z-index: 1001; /* Kept this so it's above page content */
 }
 
 .hamburgerLine {
@@ -144,7 +148,7 @@
   max-width: 400px;
   height: 100vh;
   background: linear-gradient(180deg, #FFFFFF 0%, #F8F6F4 100%);
-  z-index: 999;
+  z-index: 1003; /* Increased from 999 to be on top of everything */
   transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
   box-shadow: -8px 0 32px rgba(115, 83, 64, 0.15);
@@ -234,13 +238,17 @@
   transition: left 0.3s ease;
 }
 
-.mobileNavLink:hover {
+/* Added :focus-visible to apply the hover effect on keyboard focus */
+.mobileNavLink:hover,
+.mobileNavLink:focus-visible {
   color: #735340;
   padding-left: 1rem;
   background-color: rgba(115, 83, 64, 0.05);
 }
 
-.mobileNavLink:hover::before {
+/* Added :focus-visible to apply the hover effect on keyboard focus */
+.mobileNavLink:hover::before,
+.mobileNavLink:focus-visible::before {
   left: 0;
 }
 
@@ -251,7 +259,7 @@
   width: 100%;
   height: 100vh;
   background-color: rgba(79, 76, 71, 0.6);
-  z-index: 998;
+  z-index: 1002; /* Increased from 998 to be just behind the menu */
   backdrop-filter: blur(4px);
 }
 
@@ -348,8 +356,8 @@
 /* Focus states for accessibility */
 .navLink:focus,
 .mobileNavLink:focus {
-  outline: 2px solid #735340;
-  outline-offset: 2px;
+  outline: none; /* Removed the "boxy border" */
+  /* The :focus-visible rules we added above will handle the visual cue */
 }
 
 .hamburger:focus {
