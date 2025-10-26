@@ -123,8 +123,8 @@ const Footer = () => {
                   <LocationIcon />
                 </div>
                 <div className={styles.contactText}>
-                  <p>123 Distillery Lane</p>
-                  <p>Guwahati, Assam 781001</p>
+                  <p>1-B , Ashirwad Apartment, Chandmari</p>
+                  <p>Guwahati, Assam 781003</p>
                   <p>India</p>
                 </div>
               </div>
@@ -143,7 +143,7 @@ const Footer = () => {
                   <EmailIcon />
                 </div>
                 <div className={styles.contactText}>
-                  <p>info@queenglobalbarrels.com</p>
+                  <p>info@sevensistersdistilleries.com</p>
                 </div>
               </div>
             </div>

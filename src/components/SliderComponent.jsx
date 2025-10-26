@@ -23,20 +23,20 @@ const HeroSlider = () => {
     {
       id: 1,
       image: '/images/slider/slider1.jpg',
-      title: 'Seven Sisters Distillery',
-      subtitle: 'Crafting Heritage in Every Sip',
+      title: 'The Art of the Barrel',
+      subtitle: 'World-Class Quality.',
     },
     {
       id: 2,
       image: '/images/slider/slider2.jpg',
-      title: 'Timeless Elegance',
-      subtitle: 'Where Tradition Meets Perfection',
+      title: 'A Royal Legacy',
+      subtitle: 'Crafted in Every Barrel.',
     },
     {
       id: 3,
       image: '/images/slider/slider3.jpg',
-      title: 'A Legacy of Excellence',
-      subtitle: 'Distilled with Passion Since 2003',
+      title: 'Queen Global Barrels',
+      subtitle: 'Defining Premium Spirits.',
     },
   ];
 

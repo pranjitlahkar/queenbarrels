@@ -34,7 +34,7 @@ const directorsData = {
     name: "Anurag Bharadwaj Borah",
     title: "Director",
     image: "/images/directors/director2.jpg",
-    experience: "25+ Years",
+    experience: "15+ Years",
     specialization: "Strategic Leadership",
     directorsNote: `
 
@@ -73,17 +73,18 @@ value for everyone associated with us. </p>
       Director</p>
     `,
     achievements: [
-      "Founded Seven Sisters Trade and Distilleries in 1998",
+      "Founded Queen Global Barrels in 2025",
       "Led company to become a leading premium spirits manufacturer",
       "Pioneered sustainable packaging initiatives in the industry",
-      "Recipient of Industry Excellence Award 2020"
+      "Led digital transformation initiatives across all business units"
+
     ]
   },
   2: {
     name: "Prartthana Borah",
     title: "Managing Director",
     image: "/images/directors/director.jpeg",
-    experience: "20+ Years",
+    experience: "15+ Years",
     specialization: "Operations & Growth",
     directorsNote: `
       <p> I am Prartthana Borah, and with this new venture, my
@@ -114,9 +115,8 @@ manufacturing excellence to brand creation. </p>
     `,
     achievements: [
       "Streamlined operations resulting in 40% efficiency improvement",
-      "Spearheaded international market expansion strategy",
-      "Implemented quality management systems achieving ISO certification",
-      "Led digital transformation initiatives across all business units"
+      "Implemented quality assurance protocols elevating product standards",
+      "Developed leadership programs enhancing team performance"
     ]
   },
 
@@ -251,7 +251,7 @@ export default function DirectorDetailPage() {
           <div ref={contentRef} className={styles.directorNote}>
             <div className={styles.noteHeader}>
               <h3 className={`${styles.noteTitle} ${domine.className}`}>
-               Director&apos;s Note
+                Director&apos;s Note
               </h3>
               <div className={styles.noteUnderline}></div>
             </div>

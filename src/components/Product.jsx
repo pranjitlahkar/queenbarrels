@@ -255,13 +255,6 @@ const QueensCrownProduct = () => {
                     <span className={styles.specValue}>{queensCrownProduct.product.volume}</span>
                   </div>
                 </div>
-                <div className={styles.spec}>
-                  <span className={styles.specIcon}>⏳</span>
-                  <div className={styles.specContent}>
-                    <span className={styles.specLabel}>Maturation</span>
-                    <span className={styles.specValue}>{queensCrownProduct.product.age}</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

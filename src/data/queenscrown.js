@@ -11,8 +11,7 @@ export const queensCrownProduct = {
   product: {
     name: "Queen's Crown Premium Whiskey",
     abv: "42.8%",
-    volume: "750ml",
-    age: "8 Years",
+    volume: "750ml , 375ml , 180ml",
     color: "Rich Amber Gold",
     bottleImage: "/images/product/product22.jpg"
   },
@@ -77,8 +76,7 @@ export const queensCrownProduct = {
     title: "Product Excellence",
     details: {
       "Alcohol Content": "42.8% ABV",
-      "Volume": "750ml",
-      "Age Statement": "8 Years",
+      "Volume": "750ml, 375ml, 180ml",
       "Color": "Rich Amber Gold",
       "Origin": "Distilled in India",
       "Bottle Type": "Premium Crystal Glass"

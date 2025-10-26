@@ -32,10 +32,10 @@ const DirectorsPage = ({
     {
       id: 1,
       name: "Anurag Bharadwaj Borah",
-      title: "Founder & Chairman",
+      title: "Director",
       image: "/images/directors/director2.jpg",
-      shortBio: "Visionary leader with over 25 years of experience in the liquor industry. Founded Seven Sisters Trade and Distilleries, establishing a legacy of excellence and innovation.",
-      experience: "25+ Years",
+      shortBio: "Visionary leader with over 15 years of experience in the liquor industry. Establishing a legacy of excellence and innovation.",
+      experience: "15+ Years",
       specialization: "Strategic Leadership"
     },
     {
@@ -44,7 +44,7 @@ const DirectorsPage = ({
       title: "Managing Director",
       image: "/images/directors/director.jpeg",
       shortBio: "Expert in operations and business development, driving the expansion of Queen Global Barrels with innovative strategies and market insights.",
-      experience: "20+ Years",
+      experience: "15+ Years",
       specialization: "Operations & Growth"
     }
   ]
