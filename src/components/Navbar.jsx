@@ -95,7 +95,7 @@ const Navbar = () => {
         <div className={styles.mobileMenuContent}>
           <div className={styles.mobileHeader}>
             <Image
-              src="/logo.png" // Replace with your actual logo path
+              src="/images/logo/logo.png" // Replace with your actual logo path
               alt="Queen Global Barrels"
               width={160}
               height={53}
