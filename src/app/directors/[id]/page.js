@@ -251,7 +251,7 @@ export default function DirectorDetailPage() {
           <div ref={contentRef} className={styles.directorNote}>
             <div className={styles.noteHeader}>
               <h3 className={`${styles.noteTitle} ${domine.className}`}>
-                Director's Note
+               Director&apos;s Note
               </h3>
               <div className={styles.noteUnderline}></div>
             </div>
