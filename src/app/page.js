@@ -2,6 +2,7 @@
 import Footer from '@/components/Footer'
 import FutureVision from '@/components/FutureVision'
 import Hero from '@/components/Hero'
+import Herotwo from '@/components/Herotwo'
 import Navbar from '@/components/Navbar'
 import HeroSlider from '@/components/SliderComponent'
 import React from 'react'
@@ -11,7 +12,7 @@ const Home = () => {
     
     <div>
       
-      <Hero/>
+      <Herotwo/>
       <FutureVision/>
       <HeroSlider/>
 

@@ -28,7 +28,7 @@ if (typeof window !== 'undefined') {
 
 const About = ({ 
   backgroundImage = "/images/background/cask1.jpg",
-  logo = "/images/logo/logo.png", // Company logo prop
+  logo = "/images/logo/logowhite.png", // Company logo prop
   productImage = "/images/background/background.png" // Product image prop
 }) => {
   const sectionRef = useRef(null);
