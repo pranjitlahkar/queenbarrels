@@ -2,11 +2,29 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
+import { Domine, Poly } from 'next/font/google';
 import styles from '@/css/herotwo.module.css';
+
+// Font configurations
+const domine = Domine({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-domine',
+});
+
+const poly = Poly({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-poly',
+});
 
 const Herotwo = () => {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
+  const backgroundRef = useRef(null);
   const badgeRef = useRef(null);
   const headlinePrimaryRef = useRef(null);
   const headlineSecondaryRef = useRef(null);
@@ -18,6 +36,7 @@ const Herotwo = () => {
   useEffect(() => {
     const section = sectionRef.current;
     const container = containerRef.current;
+    const background = backgroundRef.current;
     const badge = badgeRef.current;
     const headlinePrimary = headlinePrimaryRef.current;
     const headlineSecondary = headlineSecondaryRef.current;
@@ -30,9 +49,9 @@ const Herotwo = () => {
       opacity: 0,
       y: 30,
     });
-    gsap.set(subtitleRefs.current, { opacity: 0, y: 20 });
-    gsap.set(buttonsRef.current, { opacity: 0, y: 25 });
-    gsap.set(floatingElementsRef.current, { opacity: 0, scale: 0.8 });
+    gsap.set(subtitleRefs.current.filter(Boolean), { opacity: 0, y: 20 });
+    gsap.set(buttonsRef.current.filter(Boolean), { opacity: 0, y: 25 });
+    gsap.set(floatingElementsRef.current.filter(Boolean), { opacity: 0, scale: 0.8 });
 
     // Create main timeline
     const tl = gsap.timeline({ delay: 0.3 });
@@ -41,7 +60,7 @@ const Herotwo = () => {
     tl.to(badge, { duration: 0.8, opacity: 1, y: 0, ease: "power2.out" })
       .to(headlinePrimary, { duration: 0.8, opacity: 1, y: 0, ease: "power2.out" }, "-=0.4")
       .to(headlineSecondary, { duration: 0.8, opacity: 1, y: 0, ease: "power2.out" }, "-=0.6")
-      .to(subtitleRefs.current, { 
+      .to(subtitleRefs.current.filter(Boolean), { 
         duration: 0.6, 
         opacity: 1, 
         y: 0, 
@@ -49,14 +68,14 @@ const Herotwo = () => {
         ease: "power2.out" 
       }, "-=0.4")
       .to(tagline, { duration: 0.6, opacity: 1, y: 0, ease: "power2.out" }, "-=0.2")
-      .to(buttonsRef.current, { 
+      .to(buttonsRef.current.filter(Boolean), { 
         duration: 0.6, 
         opacity: 1, 
         y: 0, 
         stagger: 0.1, 
         ease: "power2.out" 
       }, "-=0.3")
-      .to(floatingElementsRef.current, { 
+      .to(floatingElementsRef.current.filter(Boolean), { 
         duration: 1, 
         opacity: 0.4, 
         scale: 1, 
@@ -80,30 +99,57 @@ const Herotwo = () => {
       }
     });
 
-    // Parallax effect for background (reduced for mobile performance)
+    // Enhanced parallax effect for background (restored and improved)
     const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const parallax = scrolled * 0.5; // Stronger effect
+      const opacity = 1 - scrolled * 0.0015; // Fade effect
+      
+      if (background) {
+        background.style.transform = `translate3d(0, ${parallax}px, 0)`;
+        background.style.opacity = Math.max(opacity, 0.3);
+      }
+
+      // Parallax for floating elements (desktop only)
       if (window.innerWidth > 768) {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.1;
-        
-        if (section) {
-          section.style.transform = `translateY(${parallax}px)`;
-        }
+        floatingElementsRef.current.forEach((element, index) => {
+          if (element) {
+            const speed = 0.1 + (index * 0.02);
+            const yPos = scrolled * speed;
+            element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+          }
+        });
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Throttled scroll handler for better performance
+    let ticking = false;
+    const scrollHandler = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', scrollHandler, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', scrollHandler);
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.heroSection}>
+    <section 
+      ref={sectionRef} 
+      className={`${styles.heroSection} ${domine.variable} ${poly.variable}`}
+    >
       {/* Background Image Container */}
       <div className={styles.backgroundContainer}>
         <Image
+          ref={backgroundRef}
           src="/images/background/background.jpg"
           alt="Premium Distillery Background"
           className={styles.backgroundImage}
@@ -157,8 +203,16 @@ const Herotwo = () => {
           {/* Content Body - Original Text Content Preserved */}
           <div className={styles.contentBody}>
             <p ref={(el) => { if (el) subtitleRefs.current[0] = el; }} className={styles.subtitleText}>
-              Queen Global Barrels is the proud new daughter company of the legendary{' '}
-              <span className={styles.brandHighlight}>Seven Sisters Trade and Distilleries Private Limited</span>.
+              Queen Global Barrels is the proud new daughter company of the legendary
+              {' '}
+              <a 
+                href="https://www.sevensistersdistilleries.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.brandHighlight}
+              >
+                Seven Sisters Trade and Distilleries Private Limited
+              </a>.
             </p>
             
             <p ref={(el) => { if (el) subtitleRefs.current[1] = el; }} className={styles.subtitleText}>
@@ -184,7 +238,7 @@ const Herotwo = () => {
             
             <div className={styles.buttonContainer}>
               <a 
-                href="#products" 
+                href="/product" 
                 ref={(el) => { if (el) buttonsRef.current[0] = el; }}
                 className={`${styles.ctaButton} ${styles.primaryButton}`}
               >
@@ -195,7 +249,7 @@ const Herotwo = () => {
               </a>
               
               <a 
-                href="#about" 
+                href="/about" 
                 ref={(el) => { if (el) buttonsRef.current[1] = el; }}
                 className={`${styles.ctaButton} ${styles.secondaryButton}`}
               >

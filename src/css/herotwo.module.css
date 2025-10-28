@@ -1,7 +1,4 @@
-/* components/HeroSection.module.css */
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Poly:ital,wght@0,400;1,400&display=swap');
+/* components/HeroSection.module.css - Production Ready */
 
 /* CSS Custom Properties */
 :root {
@@ -17,10 +14,6 @@
   --glow-gold: rgba(212, 165, 116, 0.4);
   --glass-light: rgba(255, 255, 255, 0.1);
   --glass-medium: rgba(255, 255, 255, 0.05);
-  
-  /* Font Variables */
-  --font-primary: 'Domine', serif;
-  --font-secondary: 'Poly', serif;
   
   /* Dynamic spacing variables for mobile */
   --navbar-height: 80px;
@@ -42,6 +35,9 @@
   overflow: hidden;
   background: linear-gradient(135deg, var(--charcoal-slate), #2c2c2c);
   padding-top: calc(var(--navbar-height) + var(--safe-area-top) + 40px);
+  
+  /* Apply font variables */
+  font-family: var(--font-poly), serif;
 }
 
 /* Background Image Setup */
@@ -65,7 +61,8 @@
   object-position: center center;
   filter: brightness(0.6) contrast(1.2) saturate(1.3);
   transform: translateZ(0);
-  will-change: transform;
+  will-change: transform, opacity;
+  transition: opacity 0.1s ease-out;
 }
 
 /* Premium Overlays */
@@ -185,8 +182,9 @@
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  opacity: 1;
-  transform: translateY(0);
+  /* Ensure visibility on all devices */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .heritageBadge::before {
@@ -207,7 +205,7 @@
 
 .badgeText {
   color: var(--golden-luxury);
-  font-family: var(--font-primary); /* Domine */
+  font-family: var(--font-domine), serif;
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -219,7 +217,7 @@
 
 /* Main Headline - PRIMARY FONT (Domine) */
 .mainHeadline {
-  font-family: var(--font-primary); /* Domine */
+  font-family: var(--font-domine), serif;
   font-size: clamp(2rem, 5vw, 4.2rem);
   font-weight: 700;
   line-height: 1.1;
@@ -236,8 +234,9 @@
 .headlinePrimary {
   color: var(--classic-white);
   font-weight: 600;
-  opacity: 1;
-  transform: translateY(0);
+  /* Ensure visibility on all devices */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.8));
 }
 
@@ -255,8 +254,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 100%;
-  opacity: 1;
-  transform: translateY(0);
+  /* Ensure visibility on all devices */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   position: relative;
   text-shadow: 0 0 20px rgba(166, 134, 106, 0.4);
   animation: subtleTextGlow 10s ease-in-out infinite;
@@ -285,7 +285,7 @@
 }
 
 .subtitleText {
-  font-family: var(--font-secondary); /* Poly */
+  font-family: var(--font-poly), serif;
   font-size: clamp(0.95rem, 1.8vw, 1.2rem);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.95);
@@ -300,8 +300,9 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5rem;
-  opacity: 1;
-  transform: translateY(0);
+  /* Ensure visibility on all devices */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .subtitleText:last-child {
@@ -310,8 +311,9 @@
 
 .brandHighlight {
   color: var(--golden-luxury);
-  font-weight: 400; /* Keep regular weight for Poly */
+  font-weight: 400;
   font-style: normal;
+  text-decoration: none;
   text-shadow:
     0 0 15px rgba(212, 165, 116, 0.6),
     2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -320,11 +322,36 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.brandHighlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--golden-luxury);
+  transition: width 0.3s ease;
+}
+
+.brandHighlight:hover::after,
+.brandHighlight:focus::after {
+  width: 100%;
+}
+
+.brandHighlight:hover,
+.brandHighlight:focus {
+  text-shadow:
+    0 0 20px rgba(212, 165, 116, 0.8),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .productHighlight {
   color: var(--aged-oak);
-  font-weight: 400; /* Keep regular weight for Poly */
+  font-weight: 400;
   font-style: normal;
   text-shadow:
     0 0 12px rgba(166, 134, 106, 0.6),
@@ -338,7 +365,7 @@
 }
 
 .tagline {
-  font-family: var(--font-primary); /* Domine */
+  font-family: var(--font-domine), serif;
   font-size: clamp(1rem, 2.2vw, 1.4rem);
   font-weight: 600;
   color: var(--classic-white);
@@ -348,8 +375,9 @@
     0 0 20px rgba(212, 165, 116, 0.4);
   letter-spacing: 1px;
   line-height: 1.4;
-  opacity: 1;
-  transform: translateY(0);
+  /* Ensure visibility on all devices */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .buttonContainer {
@@ -359,9 +387,9 @@
   flex-wrap: wrap;
 }
 
-/* Premium Buttons - PRIMARY FONT (Domine) */
+/* Premium Buttons - PRIMARY FONT (Domine) - MOBILE FIXED */
 .ctaButton {
-  font-family: var(--font-primary); /* Domine */
+  font-family: var(--font-domine), serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -379,10 +407,15 @@
   min-width: 220px;
   min-height: 56px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  transform: translateY(0);
-  opacity: 1;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  
+  /* CRITICAL: Ensure buttons are visible on all devices */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 20;
 }
 
 .primaryButton {
@@ -425,6 +458,10 @@
     0 0 20px rgba(212, 165, 116, 0.4);
 }
 
+.primaryButton:active {
+  transform: translateY(0);
+}
+
 .secondaryButton {
   background: rgba(255, 255, 255, 0.15);
   color: var(--classic-white);
@@ -446,11 +483,16 @@
     0 0 15px rgba(166, 134, 106, 0.3);
 }
 
+.secondaryButton:active {
+  transform: translateY(0);
+}
+
 .buttonIcon {
   width: 20px;
   height: 20px;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  flex-shrink: 0;
 }
 
 .ctaButton:hover .buttonIcon,
@@ -630,6 +672,14 @@
     min-width: auto;
     padding: 1.2rem 2rem;
     min-height: 60px;
+    font-size: 0.95rem;
+    
+    /* CRITICAL: Force visibility on mobile */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 25;
   }
   
   .cornerTL,
@@ -709,6 +759,12 @@
     font-size: 0.95rem;
     letter-spacing: 0.8px;
     max-width: 280px;
+    min-height: 60px;
+    
+    /* CRITICAL: Ensure mobile visibility */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
   }
   
   .tagline {
@@ -727,6 +783,7 @@
     padding: 1rem 1.5rem;
     font-size: 0.9rem;
     max-width: 260px;
+    min-height: 56px;
   }
   
   .subtitleText {
@@ -824,6 +881,11 @@
     0 15px 35px rgba(115, 83, 64, 0.6);
 }
 
+.brandHighlight:focus {
+  outline: 2px solid var(--golden-luxury);
+  outline-offset: 2px;
+}
+
 /* Performance Optimizations */
 .backgroundImage,
 .content,
@@ -855,5 +917,10 @@
   .container {
     height: auto;
     margin-top: 0;
+  }
+  
+  .brandHighlight {
+    color: var(--charcoal-slate) !important;
+    text-decoration: underline;
   }
 }
