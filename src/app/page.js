@@ -4,6 +4,7 @@ import FutureVision from '@/components/FutureVision'
 import Hero from '@/components/Hero'
 import Herotwo from '@/components/Herotwo'
 import Navbar from '@/components/Navbar'
+import QueensCrownShowcase from '@/components/QueensCrownShowcase'
 import HeroSlider from '@/components/SliderComponent'
 import React from 'react'
 
@@ -14,6 +15,7 @@ const Home = () => {
       
       <Herotwo/>
       <FutureVision/>
+      <QueensCrownShowcase/>
       <HeroSlider/>
 
     </div>
